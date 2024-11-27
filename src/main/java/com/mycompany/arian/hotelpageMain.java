@@ -8,9 +8,9 @@ package com.mycompany.arian;
  *
  * @author ASUS X441U
  */
-public class Arian {
+public class hotelpageMain {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       hotelPage h = new hotelPage ();
     }
 }
