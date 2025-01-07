@@ -11,9 +11,6 @@ package com.mycompany.welcomepage;
 
 
 import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.*;
 import javax.swing.*;
 
 
@@ -23,7 +20,6 @@ public class homePage extends JFrame {
     private JPanel firstTab, secondTab, thirdTab, fourthTab, fifthTab;  
     private final JTabbedPane jtpHome;
     private JLabel txtLabel, secondLabel, thirdLabel, dashLine; 
-    private URL pic = null;
 
    //constructor for homePage class 
    homePage(){
@@ -35,6 +31,7 @@ public class homePage extends JFrame {
         firstTab = new JPanel();
         firstTab.setLayout(null);
         firstTab.setSize(1000, 600);
+                
   
   //initialize the first label to the HOME tab 
         txtLabel = new JLabel("Book Your Next");
@@ -64,19 +61,13 @@ public class homePage extends JFrame {
         dashLine.setFont(new Font("Times New Roman", Font.BOLD , 25)); 
         firstTab.add(dashLine);
         
-  // Attempt to load a background image from a URL
-            try {
-                pic = new URL ("https://i.imgur.com/SON68g6.png"); //Load the image from URL 
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(homePage.class.getName()).log(Level.SEVERE, null, ex); //log any error
-            }
- //add background image as a scaled Jlabel      
-            ImageIcon imageIcon = new ImageIcon(pic);
-            Image imageScale = imageIcon.getImage().getScaledInstance(1000, 600, Image.SCALE_SMOOTH);
-            ImageIcon imageNew = new ImageIcon(imageScale);
-            JLabel backgroundLabel = new JLabel(imageNew);
-            backgroundLabel.setBounds(0, 0, 1000, 600);
-            firstTab.add(backgroundLabel);
+ //Initialize background picture to the HOME tab
+        ImageIcon imageIcon = new ImageIcon("homePic.png");
+        Image imageScale = imageIcon.getImage().getScaledInstance(1000, 600, Image.SCALE_SMOOTH);
+        ImageIcon imageNew = new ImageIcon(imageScale);
+        JLabel backgroundLabel = new JLabel(imageNew);
+        backgroundLabel.setBounds(0, 0, 1000, 600);
+        firstTab.add(backgroundLabel);
            
  //initialize other tabs with empty panels
         secondTab = new JPanel();
